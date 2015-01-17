@@ -7,3 +7,6 @@
 [submodule "contrib"]
 	path = contrib
 	url = https://github.com/SoftwareDefinedBuildings/ioet_contrib.git
+[submodule "toolchains/nesc"]
+	path = toolchains/nesc
+	url = https://github.com/tinyos/nesc.git

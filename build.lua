@@ -20,7 +20,7 @@ autoupdate = true
 
 -- if true, this will reflash the kernel. This slows down programming, and is
 -- not necessary unless you have been told there are kernel updates.
-reflash_kernel = false
+reflash_kernel = true
 
 -- these get passed to the kernel makefile
 kernel_opts = {
