@@ -36,12 +36,22 @@ fi
 
 notify "Updating submodules..."
 cd toolchains
-git submodule update --init --recursive
-if [ $? != 0 ] ; then
-	echo "There was an error updating git submodules"
-	exit 1
+
+if [ -f ../.bootstrapped ] ; then
+    git submodule update --recursive --remote
+    echo ".boostrapped exists, so we've already built everything. Remove .bootstrapped if you want to rebuild everything"
+    exit
+else
+    git submodule update --init --recursive
+    if [ $? != 0 ] ; then
+    	echo "There was an error updating git submodules"
+    	exit 1
+    fi
+
 fi
+
 cd -
+
 
 notify "Installing packages for TinyOS + nesc..."
 apt-get install -y autoconf emacs automake gperf bison flex openjdk-7-jdk
@@ -132,3 +142,6 @@ if [ $? != 0 ] ; then
 	exit 1
 fi
 cd -
+
+sudo chown -R $SUDO_USER .
+touch .bootstrapped
