@@ -54,7 +54,7 @@ cd -
 
 
 notify "Installing packages for TinyOS + nesc..."
-apt-get install -y autoconf emacs automake gperf bison flex openjdk-7-jdk
+apt-get install -y autoconf emacs automake gperf bison flex openjdk-7-jdk rlwrap
 
 notify "Installing nesc..."
 cd toolchains/nesc
