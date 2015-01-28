@@ -146,5 +146,9 @@ if [ $? != 0 ] ; then
 fi
 cd -
 
+if [ ! -f /etc/udev/rules.d/99-storm.rules ]; then
+    echo 'ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", MODE="0666"' > /etc/udev/rules.d/99-storm.rules
+fi
+
 sudo chown -R $SUDO_USER .
 touch .bootstrapped
