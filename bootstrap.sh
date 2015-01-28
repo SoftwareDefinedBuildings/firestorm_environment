@@ -61,8 +61,9 @@ python get-pip.py
 rm get-pip.py
 wget https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
 tar xvjf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
-mv gcc-arm-none-eabi-4_8-2014q3/bin/* /usr/local/bin/.
-mv gcc-arm-none-eabi-4_8-2014q3/lib/gcc/arm-none-eabi/4.8.4/cc* /usr/local/bin/.
+cat << EOF >> /home/$SUDO_USER/.bashrc
+export PATH=\$PATH:`pwd`/gcc-arm-none-eabi-4_8-2014q3/bin
+EOF
 
 
 notify "Installing nesc..."
@@ -78,7 +79,6 @@ if [ $? != 0 ] ; then
 	exit 1
 fi
 make
-./configure
 if [ $? != 0 ] ; then
 	echo "Error running make for nesc"
 	exit 1
@@ -105,7 +105,6 @@ if [ $? != 0 ] ; then
 	exit 1
 fi
 make
-./configure
 if [ $? != 0 ] ; then
 	echo "Error running make for TinyOS"
 	exit 1
