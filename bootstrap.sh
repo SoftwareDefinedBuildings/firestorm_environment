@@ -55,7 +55,7 @@ cd -
 
 notify "Installing packages for TinyOS + nesc..."
 apt-get update
-apt-get install -y autoconf emacs automake gperf bison flex openjdk-7-jdk rlwrap libftdi-dev lib32gcc-4.8-dev gcc-multilib g++-multilib lib32z1 lib32ncurses5 lib32bz2-dev gcc-arm-none-eabi
+apt-get install -y autoconf emacs automake gperf bison flex openjdk-7-jdk rlwrap libftdi-dev lib32gcc-4.8-dev gcc-multilib g++-multilib lib32z1 lib32ncurses5 lib32bz2-dev gcc-arm-none-eabi curl python-dev
 sudo apt-get remove python-pip
 curl -O https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
