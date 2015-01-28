@@ -54,17 +54,12 @@ cd -
 
 
 notify "Installing packages for TinyOS + nesc..."
-apt-get install -y autoconf emacs automake gperf bison flex openjdk-7-jdk rlwrap libftdi-dev lib32gcc-4.8-dev gcc-multilib g++-multilib lib32z1 lib32ncurses5 lib32bz2-dev
+apt-get update
+apt-get install -y autoconf emacs automake gperf bison flex openjdk-7-jdk rlwrap libftdi-dev lib32gcc-4.8-dev gcc-multilib g++-multilib lib32z1 lib32ncurses5 lib32bz2-dev gcc-arm-none-eabi
 sudo apt-get remove python-pip
 curl -O https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 rm get-pip.py
-wget https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
-tar xvjf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
-cat << EOF >> /home/$SUDO_USER/.bashrc
-export PATH=\$PATH:`pwd`/gcc-arm-none-eabi-4_8-2014q3/bin
-EOF
-
 
 notify "Installing nesc..."
 cd toolchains/nesc
