@@ -62,9 +62,7 @@ rm get-pip.py
 wget https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
 tar xvjf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
 mv gcc-arm-none-eabi-4_8-2014q3/bin/* /usr/local/bin/.
-#cat << 'EOF' >> /home/$SUDO_USER/.bashrc
-#export PATH=$PATH:/home/oski/gcc-arm-none-eabi-4_8-2014q3/bin
-#EOF
+mv gcc-arm-none-eabi-4_8-2014q3/lib/gcc/arm-none-eabi/4.8.4/cc* /usr/local/bin/.
 
 
 notify "Installing nesc..."
