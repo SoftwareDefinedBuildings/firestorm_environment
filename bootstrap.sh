@@ -151,4 +151,5 @@ if [ ! -f /etc/udev/rules.d/99-storm.rules ]; then
 fi
 
 sudo chown -R $SUDO_USER .
+sudo chown $SUDO_USER /home/$SUDO_USER/.sload_history
 touch .bootstrapped
