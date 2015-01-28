@@ -144,7 +144,7 @@ if [ $? != 0 ] ; then
 	echo "Error installing md5 from luarocks"
 	exit 1
 fi
-lua cross-lua.lua
+lua5.1 cross-lua.lua
 if [ $? != 0 ] ; then
 	echo "Error running cross-lua"
 	exit 1
