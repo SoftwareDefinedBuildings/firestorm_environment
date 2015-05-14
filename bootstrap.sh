@@ -21,16 +21,11 @@ function notify() {
 # display on stderr
 exec 1>&2
 
-UNAME=$(uname)
-if [ "$UNAME" != "Linux" ] ; then
-    echo "Requires Ubuntu 14.04"
-    exit 1
-fi
 
+UNAME=$(uname)
 ISUBUNTU=$(lsb_release -is)
-UBUNTUVERSION=$(lsb_release -rs)
-if [ "$ISUBUNTU" != "Ubuntu" -o "$UBUNTUVERSION" != "14.04" ] ; then
-    echo "Requires Ubuntu 14.04"
+if [ "$ISUBUNTU" != "Ubuntu" -o "$UNAME" != "Linux" ] ; then
+    echo "Requires Ubuntu"
     exit 1
 fi
 
