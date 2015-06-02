@@ -49,7 +49,7 @@ cd -
 
 
 notify "Installing packages for TinyOS + nesc..."
-apt-get install -y autoconf emacs automake make gperf bison flex openjdk-7-jdk rlwrap libftdi-dev lib32gcc-4.8-dev gcc-multilib g++-multilib lib32z1 lib32ncurses5 lib32bz2-dev gcc-arm-none-eabi curl python-dev
+apt-get install -y autoconf emacs automake build-essential gperf bison flex openjdk-7-jdk rlwrap libftdi-dev lib32gcc-4.8-dev gcc-multilib g++-multilib lib32z1 lib32ncurses5 lib32bz2-dev gcc-arm-none-eabi curl python-dev
 sudo apt-get remove python-pip
 curl -O https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
@@ -145,5 +145,6 @@ if [ ! -f /etc/udev/rules.d/99-storm.rules ]; then
 fi
 
 sudo chown -R $SUDO_USER .
+touch /home/$SUDO_USER/.sload_history
 sudo chown $SUDO_USER /home/$SUDO_USER/.sload_history
 touch .bootstrapped
