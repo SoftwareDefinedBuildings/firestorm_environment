@@ -49,7 +49,16 @@ cd -
 
 
 notify "Installing packages for TinyOS + nesc..."
-apt-get install -y autoconf emacs automake build-essential gperf bison flex openjdk-7-jdk rlwrap libftdi-dev lib32gcc-4.8-dev gcc-multilib g++-multilib lib32z1 lib32ncurses5 lib32bz2-dev gcc-arm-none-eabi curl python-dev
+if [ `uname -i` -eq "x86_64" ] ; then
+  apt-get install -y autoconf emacs automake build-essential gperf bison flex openjdk-7-jdk rlwrap libftdi-dev lib32gcc-4.8-dev gcc-multilib g++-multilib lib32z1 lib32ncurses5 lib32bz2-dev gcc-arm-none-eabi curl python-dev
+else
+  apt-get install -y autoconf emacs automake build-essential gperf bison flex openjdk-7-jdk rlwrap libftdi-dev libgcc-4.8-dev gcc-multilib g++-multilib libz1 libncurses5 libbz2-dev gcc-arm-none-eabi curl python-dev
+fi
+
+if [ $? != 0 ] ; then
+	echo "Error running apt-get"
+	exit 1
+fi
 sudo apt-get remove python-pip
 curl -O https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
